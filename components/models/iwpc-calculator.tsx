@@ -106,7 +106,7 @@ export function IWPCCalculator() {
     if (patientData.amiodarone === "yes") dose -= 0.5503
 
     // 计算最终剂量 (mg/week)
-    const weeklyDose = Math.exp(dose)
+    const weeklyDose = dose ** 2
     const dailyDose = weeklyDose / 7
 
     setResult({
@@ -194,7 +194,7 @@ export function IWPCCalculator() {
               </Select>
             </div>
 
-            <div className="space-y-2">
+            {/* <div className="space-y-2">
               <Label htmlFor="targetINR">{t("targetINR")}</Label>
               <Select value={patientData.targetINR} onValueChange={(value) => handleInputChange("targetINR", value)}>
                 <SelectTrigger>
@@ -207,7 +207,7 @@ export function IWPCCalculator() {
                   <SelectItem value="3.5">3.5</SelectItem>
                 </SelectContent>
               </Select>
-            </div>
+            </div> */}
           </CardContent>
         </Card>
 
@@ -300,15 +300,15 @@ export function IWPCCalculator() {
           <CardContent>
             <div className="grid md:grid-cols-2 gap-4 text-center">
               <div className="space-y-2">
-                <Label className="text-lg font-semibold">{t("weeklyDose")}</Label>
-                <div className="text-3xl font-bold text-green-700">
-                  {result.weeklyDose} <span className="text-lg">mg/{t("language") === "zh" ? "周" : "week"}</span>
-                </div>
-              </div>
-              <div className="space-y-2">
                 <Label className="text-lg font-semibold">{t("dailyDose")}</Label>
                 <div className="text-3xl font-bold text-green-700">
                   {result.dailyDose} <span className="text-lg">mg/{t("language") === "zh" ? "日" : "day"}</span>
+                </div>
+              </div>
+              <div className="space-y-2">
+                <Label className="text-lg font-semibold">{t("weeklyDose")}</Label>
+                <div className="text-3xl font-bold text-green-700">
+                  {result.weeklyDose} <span className="text-lg">mg/{t("language") === "zh" ? "周" : "week"}</span>
                 </div>
               </div>
             </div>
