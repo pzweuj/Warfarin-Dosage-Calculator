@@ -11,7 +11,7 @@ This calculator is available for convenient online use and can also be easily de
 
 ### Online (Recommended)
 
-Visit the live demo link: [warfarin-dosage-calculator](https://warfarin-dosage-calculator.vercel.app/)
+Visit the live demo link: [warfarin-dosage-calculator](https://warfarin.biotools.site/)
 
 
 ### Local Deployment
