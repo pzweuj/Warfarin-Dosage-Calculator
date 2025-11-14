@@ -72,8 +72,9 @@ export function IWPCCalculator() {
     // IWPC公式系数
     let dose = 5.6044
 
-    // 年龄 (每十年)
-    dose -= 0.2614 * (age / 10)
+    // 年龄：使用年龄的十位数（10-19→1，20-29→2 等）
+    const ageTens = Math.floor(age / 10)
+    dose -= 0.2614 * ageTens
 
     // 身高 (cm)
     dose += 0.0087 * height
